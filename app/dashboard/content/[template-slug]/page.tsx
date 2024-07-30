@@ -14,15 +14,15 @@ import { useUser } from "@clerk/nextjs";
 import moment from "moment";
 import { TotalUsageContext } from "@/app/(context)/TotalUsageContext";
 import { UpdateCreditUsageContext } from "@/app/(context)/UpdateCreditUsageContext";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
-interface PROPS {
+interface PageProps {
   params: {
     "template-slug": string;
   };
 }
 
-function CreateNewContent(props: PROPS) {
+function CreateNewContent(props: PageProps) {
   const selectedTemplate: TEMPLATE | undefined = Templates?.find(
     (item) => item.slug == props.params["template-slug"]
   );
