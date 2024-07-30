@@ -14,7 +14,6 @@ import { useUser } from "@clerk/nextjs";
 import moment from "moment";
 import { TotalUsageContext } from "@/app/(context)/TotalUsageContext";
 import { UpdateCreditUsageContext } from "@/app/(context)/UpdateCreditUsageContext";
-import { NextRouter } from "next/router";
 import { useRouter } from "next/router";
 
 interface PROPS {
