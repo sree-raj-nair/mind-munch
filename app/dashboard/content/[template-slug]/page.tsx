@@ -13,14 +13,14 @@ import { AIOutput } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import moment from "moment";
 import { TotalUsageContext } from "@/app/(context)/TotalUsageContext";
-import { useRouter } from "next/router";
 import { UpdateCreditUsageContext } from "@/app/(context)/UpdateCreditUsageContext";
+import { NextRouter } from "next/router";
 
 interface PROPS {
   params: {
     "template-slug": string;
   };
-  router:any;
+  router:NextRouter;
 }
 
 function CreateNewContent(props: PROPS) {
