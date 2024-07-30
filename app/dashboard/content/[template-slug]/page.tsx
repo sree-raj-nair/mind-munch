@@ -15,12 +15,12 @@ import moment from "moment";
 import { TotalUsageContext } from "@/app/(context)/TotalUsageContext";
 import { UpdateCreditUsageContext } from "@/app/(context)/UpdateCreditUsageContext";
 import { NextRouter } from "next/router";
+import { useRouter } from "next/router";
 
 interface PROPS {
   params: {
     "template-slug": string;
   };
-  router:NextRouter;
 }
 
 function CreateNewContent(props: PROPS) {
@@ -30,7 +30,7 @@ function CreateNewContent(props: PROPS) {
   const [loading, setLoading] = useState(false);
   const [aiOutput, setAiOutput] = useState<string>("");
   const { user } = useUser();
-  const {router}=props;
+  const router= useRouter();
   const {totalUsage,setTotalUsage}=useContext(TotalUsageContext)
   const {updateCreditUsage,setUpdateCreditUsage} =useContext(UpdateCreditUsageContext)
   /** 
