@@ -25,8 +25,8 @@ export default function Home() {
             Contact
           </Link>
         </nav>
-        <Link href='/sign-up'>
-          <Button className="hidden lg:inline-flex">Signup</Button>
+        <Link href='/dashboard'>
+          <Button className="hidden lg:inline-flex">Try Now</Button>
         </Link>
       </header>
         {/* Hero Section */}
