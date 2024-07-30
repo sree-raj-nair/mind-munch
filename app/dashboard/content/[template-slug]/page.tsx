@@ -61,17 +61,23 @@ function CreateNewContent(props: PageProps) {
   };
 
   const SaveInDb = async (formData: any, slug: any, aiResp: string) => {
-    const result = await db.insert(AIOutput).values({
-      formData: formData,
-      templateSlug: slug,
-      aiResponse: aiResp,
-      createdBy: user?.primaryEmailAddress?.emailAddress,
-      createdAt: moment().format("DD/MM/yyyy"),
-    });
-
-    console.log(result);
+    try {
+      const insertData: Omit<typeof AIOutput.$inferInsert, 'id'> = {
+        formData: JSON.stringify(formData),
+        templateSlug: slug,
+        aiResponse: aiResp,
+        createdBy: user?.primaryEmailAddress?.emailAddress ?? 'unknown',
+        createdAt: moment().format("DD/MM/yyyy"), 
+      };
+  
+      const result = await db.insert(AIOutput).values(insertData);
+  
+      console.log(result);
+    } catch (error) {
+      console.error('Error saving to database:', error);
+    }
   };
-
+  
   return (
     <div className="p-10">
       <Link href={"/dashboard"}>
